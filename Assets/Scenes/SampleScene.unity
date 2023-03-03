@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 140575700}
   - component: {fileID: 140575699}
   - component: {fileID: 140575705}
-  - component: {fileID: 140575704}
+  - component: {fileID: 140575706}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -246,23 +246,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &140575704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 140575698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b58b28fe3a779146a18966a00b3f166, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minRange: 8
-  sightWidth: 0.5
-  obstaclesLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!114 &140575705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,9 +258,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912c06b58ed516b4fb8c15de40e8b98e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destinationProvider: {fileID: 140575704}
+  destinationProvider: {fileID: 140575706}
   navAgent: {fileID: 140575699}
   responseTime: 0.5
+--- !u!114 &140575706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140575698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43685ae2f7293f14280a49a057680067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minRange: 5
+  sightWidth: 0.5
+  obstaclesLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &258537903
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,7 +851,7 @@ GameObject:
   - component: {fileID: 1211622763}
   - component: {fileID: 1211622762}
   - component: {fileID: 1211622761}
-  - component: {fileID: 1211622760}
+  - component: {fileID: 1211622767}
   m_Layer: 0
   m_Name: Melee Enemy
   m_TagString: Untagged
@@ -859,23 +859,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1211622760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1211622759}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b58b28fe3a779146a18966a00b3f166, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minRange: 3
-  sightWidth: 0.5
-  obstaclesLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!114 &1211622761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -888,7 +871,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912c06b58ed516b4fb8c15de40e8b98e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destinationProvider: {fileID: 1211622760}
+  destinationProvider: {fileID: 1211622767}
   navAgent: {fileID: 1211622762}
   responseTime: 0.2
 --- !u!195 &1211622762
@@ -992,6 +975,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1211622767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211622759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43685ae2f7293f14280a49a057680067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minRange: 2
+  sightWidth: 0.5
+  obstaclesLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1398745214
 GameObject:
   m_ObjectHideFlags: 0

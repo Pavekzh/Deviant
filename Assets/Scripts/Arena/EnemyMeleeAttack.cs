@@ -11,13 +11,10 @@ public class EnemyMeleeAttack : MonoBehaviour
     [SerializeField] private LayerMask obstacleLayerMask;
     private GameObject player;
 
-    void Awake()
-    {
-        player = Player.Player.Instance.gameObject;
-    }
 
     private void Start()
     {
+        player = Player.Player.Instance.gameObject;
         StartCoroutine(EnemyAttack());
     }
     IEnumerator EnemyAttack()

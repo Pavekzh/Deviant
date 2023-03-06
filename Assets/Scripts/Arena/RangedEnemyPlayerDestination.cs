@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Arena
 {
-    public class ToVisiblePlayerDestination : DestinationProvider
+    public class RangedEnemyPlayerDestination : DestinationProvider
     {
         [SerializeField] float minRange = 5;
         [SerializeField] float sightWidth = 0.5f;

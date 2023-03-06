@@ -24,5 +24,10 @@ namespace Arena
             return true;
         }
 
+        public void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, minRange);
+        }
     }
 }

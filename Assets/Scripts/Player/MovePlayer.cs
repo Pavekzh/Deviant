@@ -10,13 +10,26 @@ public class MovePlayer : MonoBehaviour
     public float smoothTime = 0.3F;
     private Vector3 CurrentInputVector;
     private Vector3 SmoothInputVelocity;
+
+    private void Awake()
+    {
+        joystick.InputBinding.ValueChanged += JoystickInputChanged;
+    }
     private void Update()
     {
-        if (joystick.Direction.y != 0 || joystick.Direction.x != 0)
+
+        CurrentInputVector = Vector3.SmoothDamp(CurrentInputVector, joystick.JoystickDirection * -1, ref SmoothInputVelocity, smoothTime);
+        transform.Translate(CurrentInputVector * speed * Time.deltaTime, Space.World);
+    }
+
+    private void JoystickInputChanged(Vector3 value, object source)
+    {
+        value *= -1;
+
+        if (value != Vector3.zero)
         {
-            transform.rotation = Quaternion.LookRotation(new Vector3(joystick.Direction.x,0 ,joystick.Direction.y));
+            transform.rotation = Quaternion.LookRotation(value);
         }
-        CurrentInputVector = Vector3.SmoothDamp(CurrentInputVector, joystick.Direction, ref SmoothInputVelocity, smoothTime);
-        transform.Translate(new Vector3( CurrentInputVector.x,0, CurrentInputVector.y) * speed * Time.deltaTime, Space.World);
+
     }
 }

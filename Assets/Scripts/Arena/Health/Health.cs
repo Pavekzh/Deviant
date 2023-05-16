@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Assets.Scripts.UI;
 
 namespace Assets.Scripts.Arena
 {
     public class Health : MonoBehaviour
     {
-        [SerializeField] float hp;
+        [SerializeField] private FillingBar healthBar;
+        [SerializeField] private float maxHP;
+        [SerializeField] private float hp;
         [SerializeField] List<DamageModificator> modificators;
 
         public float HP { get => hp; }
+        public float MaxHP { get => maxHP; }
         public List<DamageModificator> Modificators { get => modificators; }
 
         public void TakeDamage(Damage damage)
@@ -20,6 +23,10 @@ namespace Assets.Scripts.Arena
                 modificator.Modificate(damage);
             }
             hp = hp - damage.AllDamage;
+
+            if (healthBar != null)
+                healthBar.UpdateFilling(HP / MaxHP);
+
             CheckDeath(hp);
         }
 

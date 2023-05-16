@@ -7,14 +7,14 @@ using UnityEngine;
 
 namespace Assets.Scripts.Arena
 {
-    [CreateAssetMenu (fileName = "DamageModificator",menuName = "ScriptableObject/Arena/DamageModificator")]
+    [CreateAssetMenu (fileName = "DamageModificator",menuName = "ScriptableObject/Health/DamageModificator")]
     public class DamageModificator : ScriptableObject
     {
         [SerializeField] List<DamageModifacatorPart> parts;
         public List<DamageModifacatorPart> Parts { get => parts; }
         public void Modificate(Damage damage)
         {
-            foreach (DamagePart part in damage.Parts)
+            foreach (DamagePart part in damage.DamageParts)
             {
                 foreach (DamageModifacatorPart mPart in Parts)
                 {

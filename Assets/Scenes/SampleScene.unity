@@ -1973,6 +1973,7 @@ GameObject:
   - component: {fileID: 1398745220}
   - component: {fileID: 1398745222}
   - component: {fileID: 1398745223}
+  - component: {fileID: 1398745224}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -2121,9 +2122,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystick: {fileID: 174702363}
-  objectSelectionMask:
+  shootableLayerMask:
     serializedVersion: 2
-    m_Bits: 2147483647
+    m_Bits: 0
   shootingModule: {fileID: 1398745223}
 --- !u!114 &1398745223
 MonoBehaviour:
@@ -2149,6 +2150,21 @@ MonoBehaviour:
   heatLevel: 0
   reloadProgress: 0
   shotsCount: 0
+--- !u!114 &1398745224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398745214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aed0542c309a4d4c95bc05b52e5ab70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
+  modificators:
+  - {fileID: 11400000, guid: 6a295c19d11a8884aac6d5ed18bdf17f, type: 2}
 --- !u!1 &1788072011
 GameObject:
   m_ObjectHideFlags: 0

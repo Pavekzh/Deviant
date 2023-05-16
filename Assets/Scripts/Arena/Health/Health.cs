@@ -15,11 +15,20 @@ namespace Assets.Scripts.Arena
 
         public void TakeDamage(Damage damage)
         {
-            foreach(DamageModificator modificator in modificators)
+            foreach (DamageModificator modificator in modificators)
             {
                 modificator.Modificate(damage);
             }
             hp = hp - damage.AllDamage;
+            CheckDeath(hp);
+        }
+
+        private void CheckDeath(float hp)
+        {
+            if (Mathf.Approximately(hp, 0) || hp < 0)
+            {
+                GameObject.Destroy(this.gameObject);
+            }
         }
     }
 }

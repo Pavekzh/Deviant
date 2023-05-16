@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Arena
 {
-    [CreateAssetMenu(fileName = "Damage", menuName = "ScriptableObjects/Arena/Damage")]
+    [CreateAssetMenu(fileName = "Damage", menuName = "ScriptableObject/Damage/Damage")]
     public class Damage:ScriptableObject
     {
         [SerializeField] List<DamagePart> damageParts;

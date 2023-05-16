@@ -12,7 +12,7 @@ namespace Assets.Scripts.Arena
         Absolute,
         Percent
     }
-    [CreateAssetMenu(fileName = "Armour", menuName = "ScriptableObject/Arena/ArmourModidicator")]
+    [CreateAssetMenu(fileName = "Armour", menuName = "ScriptableObject/Health/ArmourPart")]
     class Armour :  DamageModifacatorPart
     {
         [SerializeField] float points;

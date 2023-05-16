@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Arena
 {
-    [CreateAssetMenu(fileName = "Weakness", menuName = "ScriptableObject/Arena/WeaknessModidicator")]
+    [CreateAssetMenu(fileName = "Weakness", menuName = "ScriptableObject/Health/WeaknessPart")]
     public class Weakness :  DamageModifacatorPart
     {
         [SerializeField] float points;
@@ -17,7 +17,7 @@ namespace Assets.Scripts.Arena
 
         public override void Modificate(DamagePart damage)
         {
-            if (this.DamageType != damage.DamageType)
+            if (this.DamageType != damage.Type)
                 return;
             
           damage.Points = damage.Points + (damage.Points * (this.Points / 100));

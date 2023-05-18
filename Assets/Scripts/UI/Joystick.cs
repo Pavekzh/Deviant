@@ -2,7 +2,6 @@ using BasicTools;
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using BaseTools;
 
 namespace UI
 {

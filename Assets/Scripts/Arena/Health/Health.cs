@@ -11,11 +11,20 @@ namespace Assets.Scripts.Arena
         [SerializeField] private float maxHP;
         [SerializeField] private float hp;
         [SerializeField] List<DamageModificator> modificators;
-
+        
+        private DeathHandler deathHandler;
         public float HP { get => hp; }
         public float MaxHP { get => maxHP; }
         public List<DamageModificator> Modificators { get => modificators; }
 
+        private void Start()
+        {
+            deathHandler = GetComponent<DeathHandler>();
+            if(deathHandler==null)
+            {
+                Debug.LogError("Health can`t work without DeathHandler component");
+            }
+        }
         public void TakeDamage(Damage damage)
         {
             foreach (DamageModificator modificator in modificators)
@@ -34,7 +43,7 @@ namespace Assets.Scripts.Arena
         {
             if (Mathf.Approximately(hp, 0) || hp < 0)
             {
-                GameObject.Destroy(this.gameObject);
+                deathHandler.HandleDeath();
             }
         }
     }

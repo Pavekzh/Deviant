@@ -8,7 +8,7 @@ namespace Arena
     {
         [SerializeField] private float speed; 
 
-        protected Rigidbody rigidbody;
+        protected new Rigidbody rigidbody;
 
         private void Awake()
         {

@@ -7,21 +7,31 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private UI.Joystick joystick;
     [SerializeField] private LayerMask shootableLayerMask;
     [SerializeField] private ShootingModule shootingModule;
+
+    private bool isShooting = false;
+
     private void Awake()
     {
         joystick.InputReadingStoped += StopShooting;
-        joystick.InputReadingStarted += StartShooting;
         joystick.InputBinding.ValueChanged += JoystickInputChanged;
     }
 
     private void StopShooting()
     {
-        shootingModule.StopShooting();
+        if (isShooting)
+        {
+            isShooting = false;
+            shootingModule.StopShooting();
+        }
     }
 
     private void StartShooting()
     {
-        shootingModule.StartShooting();
+        if (!isShooting)
+        {
+            isShooting = true;        
+            shootingModule.StartShooting();
+        }
        
     }
 
@@ -32,11 +42,19 @@ public class PlayerShooting : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(value);
         }
-        Ray ray = new Ray(transform.position, value);
-        if (Physics.Raycast(ray, out RaycastHit hit, float.MaxValue, shootableLayerMask))
+
+        shootingModule.Target = FindTarget(transform.position, value, shootableLayerMask);
+
+        StartShooting();
+    }
+
+    private static Vector3 FindTarget(Vector3 position,Vector3 direction,LayerMask shootable)
+    {
+        Ray ray = new Ray(position, direction);
+        if(Physics.Raycast(ray,out RaycastHit hit, float.MaxValue, shootable))
         {
-            shootingModule.Target = hit.point;
+            return hit.point;
         }
-        
+        return position;
     }
 }

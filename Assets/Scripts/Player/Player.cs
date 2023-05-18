@@ -12,7 +12,7 @@ namespace Player
         [SerializeField] LayerMask terrainLayerMask;
 
 
-        private Camera camera;
+        private new Camera camera;
 
         private void Start()
         {

@@ -2,7 +2,6 @@ using BasicTools;
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using BaseTools;
 
 namespace UI
 {
@@ -95,14 +94,14 @@ namespace UI
 
         public virtual void JoystickTouchUp()
         {
-            if (isEnabled)
-                InputReadingStoped?.Invoke();
             if (returnStickToOrigin)
             {
                 stick.position = rectTransform.position;
                 InputBinding.ChangeValue(Vector3.zero, this);
             }
 
+            if (isEnabled)
+                InputReadingStoped?.Invoke();
 
             IsTouched = false;
         }

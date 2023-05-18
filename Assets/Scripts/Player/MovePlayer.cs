@@ -6,7 +6,6 @@ public class MovePlayer : MonoBehaviour
 {
     [SerializeField] private UI.Joystick joystick;
     [SerializeField] private float speed;
-
     public float smoothTime = 0.3F;
     private Vector3 CurrentInputVector;
     private Vector3 SmoothInputVelocity;

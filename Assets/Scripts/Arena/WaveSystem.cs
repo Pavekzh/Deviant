@@ -1,12 +1,12 @@
 using Mono.Collections.Generic;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using BasicTools;
 using UnityEngine;
 
 namespace Arena
 {
-    public class WaveSystem : MonoBehaviour
+    public class WaveSystem : Singleton<WaveSystem>
     {   
         [SerializeField] private float timeDelay = 5f;
         [SerializeField] private WaveData[] waves;
@@ -46,7 +46,7 @@ namespace Arena
                 Debug.Log("Open portal");
         }
 
-        public void EnemyIsDead()
+        public void EnemyDead()
         {
             amountKilledEnemies++;
             if (!waves[waveIndex].IsWaveAlive(amountKilledEnemies))

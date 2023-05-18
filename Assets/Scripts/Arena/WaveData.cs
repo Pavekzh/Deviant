@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "Wave", menuName = "Arena/Waves/New Wave")]
+[CreateAssetMenu(fileName = "Wave", menuName = "ScriptableObject/Waves/WaveData")]
 public class WaveData : ScriptableObject
 {
     [SerializeField] private EnemySettings[] enemies;

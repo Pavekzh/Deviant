@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 63198d29793650645b0fa63661ba7501
+guid: c271d872fd319d144b2be695dd222eda
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -36,11 +36,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: FireRun
+      name: RunRight
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
-      lastFrame: 82
+      lastFrame: 54
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

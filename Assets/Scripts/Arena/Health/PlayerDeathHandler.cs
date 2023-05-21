@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.Arena
 {
@@ -7,7 +8,13 @@ namespace Assets.Scripts.Arena
     {
         public override void HandleDeath()
         {
-            Debug.Log("Лох попущенный проебал в своей игре");
+            StartCoroutine(WaitRestart());
+            //SceneManager.LoadScene(0);
+        }
+        IEnumerator WaitRestart() 
+        {
+            yield return new WaitForSeconds(5);
+            SceneManager.LoadScene(0);
         }
     }
 }

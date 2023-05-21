@@ -8,6 +8,7 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private LayerMask shootableLayerMask;
     [SerializeField] private ShootingModule shootingModule;
     [SerializeField] private float additionalAngle;
+
     private bool isShooting = false;
     private void Awake()
     {
@@ -17,7 +18,7 @@ public class PlayerShooting : MonoBehaviour
 
     private void StopShooting()
     {
-         if (isShooting)
+        if (isShooting)
         {
             isShooting = false;
             shootingModule.StopShooting();

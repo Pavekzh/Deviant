@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Arena
 {
@@ -9,5 +10,8 @@ namespace Arena
         public abstract void StartShooting();
 
         public abstract void StopShooting();
+
+        public abstract event Action ShootingStarted;
+        public abstract event Action ShootingPaused;
     }
 }

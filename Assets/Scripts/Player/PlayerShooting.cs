@@ -7,9 +7,9 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private UI.Joystick joystick;
     [SerializeField] private LayerMask shootableLayerMask;
     [SerializeField] private ShootingModule shootingModule;
+    [SerializeField] private float additionalAngle;
 
     private bool isShooting = false;
-
     private void Awake()
     {
         joystick.InputReadingStoped += StopShooting;
@@ -31,8 +31,7 @@ public class PlayerShooting : MonoBehaviour
         {
             isShooting = true;        
             shootingModule.StartShooting();
-        }
-       
+        }       
     }
 
     private void JoystickInputChanged(Vector3 value, object source)
@@ -40,9 +39,9 @@ public class PlayerShooting : MonoBehaviour
         value *= -1;
         if (value != Vector3.zero)
         {
-            transform.rotation = Quaternion.LookRotation(value);
+            transform.rotation = Quaternion.Euler(Quaternion.LookRotation(value).eulerAngles+new Vector3(0,additionalAngle,0));
         }
-
+        
         shootingModule.Target = FindTarget(transform.position, value, shootableLayerMask);
 
         StartShooting();

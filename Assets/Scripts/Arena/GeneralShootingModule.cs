@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Arena
@@ -33,6 +34,9 @@ namespace Arena
 
         float reloadStartTime;
         float cooldownStartTime;
+
+        public override event Action ShootingStarted;
+        public override event Action ShootingPaused;
 
         public override void StartShooting()
         {
@@ -113,6 +117,7 @@ namespace Arena
 
             while (true)
             {
+                ShootingStarted?.Invoke();
                 while (!isOverheated)
                 {
                     Shoot();
@@ -126,7 +131,7 @@ namespace Arena
 
         protected IEnumerator Cooldown()
         {
-
+            ShootingPaused?.Invoke();
             if (animateCooldown)
             {
                 while (!Mathf.Approximately(heatLevel, 0) && heatLevel > 0)

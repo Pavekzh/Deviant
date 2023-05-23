@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7729673366030500257}
   - component: {fileID: 6281169094363968257}
   - component: {fileID: 7837480524005434301}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: GunnerBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  useTrigger: 0
 --- !u!114 &6281169094363968257
 MonoBehaviour:
   m_ObjectHideFlags: 0

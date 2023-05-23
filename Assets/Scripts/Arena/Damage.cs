@@ -5,9 +5,9 @@ using UnityEngine;
 namespace Assets.Scripts.Arena
 {
     [CreateAssetMenu(fileName = "Damage", menuName = "ScriptableObject/Damage/Damage")]
-    public class Damage:ScriptableObject
+    public class Damage:ScriptableObject,ICloneable
     {
-        [SerializeField] List<DamagePart> damageParts;
+        [SerializeField] List<DamagePart> damageParts = new List<DamagePart>();
 
         public List<DamagePart> DamageParts { get => damageParts; }
 
@@ -22,6 +22,18 @@ namespace Assets.Scripts.Arena
                 }
                 return points;
             }
+        }
+
+        public object Clone()
+        {
+            Damage cloned = (Damage)(this.MemberwiseClone());
+            cloned.damageParts = new List<DamagePart>();
+
+            foreach(DamagePart part in this.damageParts)
+            {
+                cloned.damageParts.Add(part);
+            }
+            return cloned;
         }
     }
 }

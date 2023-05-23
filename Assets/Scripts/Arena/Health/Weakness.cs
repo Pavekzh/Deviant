@@ -15,7 +15,7 @@ namespace Assets.Scripts.Arena
         public float Points { get => points; }
         public override string DamageType { get => damageType; }
 
-        public override void Modificate(DamagePart damage)
+        public override void Modificate(ref DamagePart damage)
         {
             if (this.DamageType != damage.Type)
                 return;

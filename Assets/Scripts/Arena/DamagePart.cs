@@ -4,15 +4,17 @@ using UnityEngine;
 
 namespace Assets.Scripts.Arena
 {
-    [CreateAssetMenu(fileName ="DamagePart",menuName ="ScriptableObject/Damage/DamagePart")]
-    public class DamagePart:ScriptableObject
+
+    [Serializable]
+    public struct DamagePart
     {
-        
-        [SerializeField] float points;
-        [SerializeField] string type;
+        public float Points;
+        public string Type;
 
-        public float Points { get => points; set => points = value; }
-        public string Type { get => type; }
-
+        public DamagePart(float Points, string Type)
+        {
+            this.Points = Points;
+            this.Type = Type;
+        }
     }
 }

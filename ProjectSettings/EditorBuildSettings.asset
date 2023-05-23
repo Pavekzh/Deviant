@@ -5,12 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 0
-    path: Assets/Scenes/Denys.unity
-    guid: 9eb3ea6daf4eb514e8fb091c2d9a5955
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 15a458b7bc67f804ab86bdc49597be2e
   - enabled: 1
     path: Assets/Scenes/Arena1.unity
     guid: 107b3571ddd42e34d8d7e84a47802cd5

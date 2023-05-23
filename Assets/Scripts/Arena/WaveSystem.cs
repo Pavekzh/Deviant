@@ -11,6 +11,7 @@ namespace Arena
         [SerializeField] private float timeDelay = 5f;
         [SerializeField] private WaveData[] waves;
         [SerializeField] private SpawnSettings PositionSpawners;
+        [SerializeField] private Assets.Scripts.Menu.FinishGamePanelController finishGamePanel;
 
         private int waveIndex;
         private int amountKilledEnemies;
@@ -18,6 +19,9 @@ namespace Arena
         private WaveFactory waveFactory;
         private EnemyFactory enemyFactory;
         private WaveData data;
+
+        public System.Action WaveStarted;
+        public System.Action<int> ChangedEnemiesCount;
 
         private void Awake()
         {
@@ -31,6 +35,14 @@ namespace Arena
             waveIndex = 0;
             data = waves[0];
             waveFactory.CreateWave(data,PositionSpawners);
+
+            WaveStarted?.Invoke();
+            ChangedEnemiesCount?.Invoke(waves[waveIndex].Enemies.Length);
+        }
+
+        private void Win()
+        {
+            finishGamePanel.OpenWin();
         }
         
         public void StartNewWave()
@@ -41,9 +53,12 @@ namespace Arena
                 waveIndex++;
                 data = waves[waveIndex];
                 waveFactory.CreateWave(data, PositionSpawners);
+
+                WaveStarted.Invoke();
+                ChangedEnemiesCount?.Invoke(waves[waveIndex].Enemies.Length);
             }
             else
-                Debug.Log("Open portal");
+                Win();
         }
 
         public void EnemyDead()
@@ -51,6 +66,8 @@ namespace Arena
             amountKilledEnemies++;
             if (!waves[waveIndex].IsWaveAlive(amountKilledEnemies))
                 StartCoroutine(PauseBeforeWave(timeDelay));
+
+            ChangedEnemiesCount?.Invoke(waves[waveIndex].Enemies.Length - amountKilledEnemies);
         }
 
         IEnumerator PauseBeforeWave(float timeDelay)

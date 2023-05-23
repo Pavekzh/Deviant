@@ -6,7 +6,8 @@ namespace Arena
     [RequireComponent(typeof(Rigidbody))]
     public class StraightTrajectoryProjectile : ProjectileController
     {
-        [SerializeField] private float speed; 
+        [SerializeField] private float speed;
+        [SerializeField] private bool useTrigger = false;
 
         protected new Rigidbody rigidbody;
 
@@ -23,6 +24,12 @@ namespace Arena
         private void OnCollisionEnter(Collision collision)
         {
             GameObject.Destroy(gameObject);
+        }
+
+        public void OnTriggerEnter(Collider other)
+        {
+            if(useTrigger)
+                GameObject.Destroy(gameObject);
         }
     }
 }

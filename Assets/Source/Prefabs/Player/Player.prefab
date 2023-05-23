@@ -31,7 +31,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4330107761664262620}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.6400003, y: 20.278, z: -2.4}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
@@ -82,12 +82,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fdd440ed06a3ad44827486a5935f185, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 648327025910013573}
   joystick: {fileID: 0}
   shootableLayerMask:
     serializedVersion: 2
     m_Bits: 1088
   shootingModule: {fileID: 8662263402660068567}
-  additionalAngle: 9
+  additionalAngle: 7
 --- !u!114 &5960330297205775410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,9 +101,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9518919e91990c49a08163455c4056c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 648327025910013573}
   joystick: {fileID: 0}
   attackJoystick: {fileID: 0}
-  speed: 0.1
+  speed: 7
   smoothTime: 0.15
 --- !u!114 &3958672265990709469
 MonoBehaviour:
@@ -149,9 +151,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
-  maxHP: 200
-  hp: 200
-  modificators: []
+  maxHP: 600
+  hp: 600
+  modificators:
+  - {fileID: 11400000, guid: 6a295c19d11a8884aac6d5ed18bdf17f, type: 2}
 --- !u!114 &48708965524652892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,6 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c4aea9a059647468b4224d1547b26f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  finishGamePanel: {fileID: 0}
 --- !u!1 &8428455341165379191
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,7 +420,7 @@ GameObject:
   - component: {fileID: 8662263402660068566}
   - component: {fileID: 8662263402660068567}
   m_Layer: 3
-  m_Name: PointShoot
+  m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -430,7 +434,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8662263402660068565}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.058000084, y: 1.5529997, z: 0.86999995}
+  m_LocalPosition: {x: 0.083, y: 1.49, z: 0.976}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -452,7 +456,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 3420682560313539435, guid: 9d15b2899574bfb45808059ae5249b17,
     type: 3}
   fireRate: 15
-  shotsToOverheat: 10
+  shotsToOverheat: 100
   cooldownTime: 1
   animateCooldown: 1
   preciseCooldown: 1
@@ -887,7 +891,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e23f284cc0404434ba36d8acf05f07b6, type: 2}
+  - {fileID: 2100000, guid: 59a1a281d86cc7d4ca1f7d17abf70c9f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1405,6 +1409,7 @@ GameObject:
   - component: {fileID: 8662263403075059529}
   - component: {fileID: 8662263403075059533}
   - component: {fileID: 8662263403075059532}
+  - component: {fileID: 1184518624}
   m_Layer: 3
   m_Name: Body
   m_TagString: Untagged
@@ -1470,6 +1475,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   joystickMove: {fileID: 0}
   joystickFire: {fileID: 0}
+  forward: 315
+  backward: 135
+  right: 45
+  left: 225
 --- !u!114 &8662263403075059532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1483,6 +1492,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootingModule: {fileID: 8662263402660068567}
+--- !u!114 &1184518624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8662263403075059538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21e7cf32b177d674990d0e854e098367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  death: {fileID: 48708965524652892}
+  health: {fileID: 648327025910013573}
 --- !u!1 &8662263403083135411
 GameObject:
   m_ObjectHideFlags: 0
@@ -2829,7 +2852,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 59a1a281d86cc7d4ca1f7d17abf70c9f, type: 2}
+  - {fileID: 2100000, guid: e23f284cc0404434ba36d8acf05f07b6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3848,8 +3871,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8662263404616768409}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.058000084, y: 1.5529997, z: 3.2019997}
-  m_LocalScale: {x: 0.24999996, y: 0.24999996, z: 0.24999996}
+  m_LocalPosition: {x: -0.26, y: 1.5529997, z: 3.2019997}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8662263403075059539}
@@ -3883,7 +3906,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5051557cbbe578345ac4a6badae0a559, type: 2}
+  - {fileID: 2100000, guid: 138767a4c57f3b8498d3b23448feaa5a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

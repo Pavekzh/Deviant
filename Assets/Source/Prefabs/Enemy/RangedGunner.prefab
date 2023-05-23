@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 1122292506641969915}
   - component: {fileID: 1122292506641969914}
   - component: {fileID: 1122292506641969913}
+  - component: {fileID: -716764954789321175}
   m_Layer: 10
   m_Name: RangedGunner
   m_TagString: Untagged
@@ -146,10 +147,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 180
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -173,6 +174,7 @@ MonoBehaviour:
   destinationProvider: {fileID: 1122292506641969919}
   navAgent: {fileID: 1122292506641969908}
   responseTime: 0.5
+  rotationSpeed: 2
 --- !u!114 &1122292506641969919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,8 +220,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1122292507950238207}
-  maxHP: 125
-  hp: 125
+  maxHP: 200
+  hp: 200
   modificators: []
 --- !u!114 &1122292506641969913
 MonoBehaviour:
@@ -233,6 +235,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25565e76b9dcefb49a76e9e44f36c9ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-716764954789321175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122292506641969909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33cad4269ba59dc428b01f3b30fa5f2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 1122292506641969914}
 --- !u!1 &1122292506714215398
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,6 +583,9 @@ VisualEffect:
       - m_Value: 0.6
         m_Name: LifeTime
         m_Overridden: 1
+      - m_Value: 0.7
+        m_Name: Lifetime
+        m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
@@ -716,10 +734,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad66fe85c90e53f4aac1c1d2aee702d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 3420682560313539435, guid: f97934e43b27a6e4193eb198402420c6,
+  projectilePrefab: {fileID: 3420682560313539435, guid: caa035c968404b24eb2684a0312b51eb,
     type: 3}
-  fireRate: 5
-  shotsToOverheat: 5
+  fireRate: 10
+  shotsToOverheat: 15
   cooldownTime: 1
   animateCooldown: 0
   preciseCooldown: 1
@@ -799,6 +817,9 @@ VisualEffect:
       m_Array:
       - m_Value: 0.6
         m_Name: LifeTime
+        m_Overridden: 1
+      - m_Value: 0.7
+        m_Name: Lifetime
         m_Overridden: 1
     m_Vector2f:
       m_Array: []
@@ -948,10 +969,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad66fe85c90e53f4aac1c1d2aee702d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 3420682560313539435, guid: f97934e43b27a6e4193eb198402420c6,
+  projectilePrefab: {fileID: 3420682560313539435, guid: caa035c968404b24eb2684a0312b51eb,
     type: 3}
-  fireRate: 5
-  shotsToOverheat: 5
+  fireRate: 10
+  shotsToOverheat: 15
   cooldownTime: 1
   animateCooldown: 0
   preciseCooldown: 1

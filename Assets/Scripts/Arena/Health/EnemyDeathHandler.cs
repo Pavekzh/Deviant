@@ -9,6 +9,7 @@ namespace Assets.Scripts.Arena
 
         public override void HandleDeath()
         {
+            Died?.Invoke();
             WaveSystem.Instance.EnemyDead();
             Destroy(gameObject);
             //StartCoroutine(DelayDeath());

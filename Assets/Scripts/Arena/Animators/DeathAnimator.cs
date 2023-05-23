@@ -6,6 +6,7 @@ namespace Assets.Scripts.Arena.Animators
 {
     public class DeathAnimator : MonoBehaviour
     {
+        [SerializeField] private DeathHandler death;
         [SerializeField] private Health health;
 
         private Animator animator;
@@ -13,7 +14,7 @@ namespace Assets.Scripts.Arena.Animators
         private void Start()
         {
             health.TakedDamage += TakedDamage;
-            health.Died += Died;
+            death.Died += Died;
             animator = GetComponent<Animator>();
         }
 

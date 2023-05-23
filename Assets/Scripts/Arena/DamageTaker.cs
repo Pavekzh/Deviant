@@ -29,7 +29,7 @@ namespace Assets.Scripts.Arena
             if (damager == null)
                 return;
 
-            Health.TakeDamage(damager.Damage);
+            Health.TakeDamage(damager.Damage.Clone() as Damage);
         }
 
         private void OnCollisionEnter(Collision collision)

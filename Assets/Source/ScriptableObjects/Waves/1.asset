@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: 1
   m_EditorClassIdentifier: 
   enemies:
-  - enemy: {fileID: 8934473631132488070, guid: 9357289208d7284408831925a5b6d00e, type: 3}
-  - enemy: {fileID: 8934473631132488070, guid: 9357289208d7284408831925a5b6d00e, type: 3}
-  - enemy: {fileID: 8934473631132488070, guid: 9357289208d7284408831925a5b6d00e, type: 3}
   - enemy: {fileID: 6910534049966562513, guid: f204db760f2181d44993b54ccc04b408, type: 3}
   - enemy: {fileID: 6910534049966562513, guid: f204db760f2181d44993b54ccc04b408, type: 3}
-  - enemy: {fileID: 1122292506641969909, guid: 3d0f69a3d86be054a82ba5dbc49e5eda, type: 3}
+  - enemy: {fileID: 6910534049966562513, guid: f204db760f2181d44993b54ccc04b408, type: 3}
+  - enemy: {fileID: 6910534049966562513, guid: f204db760f2181d44993b54ccc04b408, type: 3}
+  - enemy: {fileID: 6910534049966562513, guid: f204db760f2181d44993b54ccc04b408, type: 3}
+  - enemy: {fileID: 6910534049966562513, guid: f204db760f2181d44993b54ccc04b408, type: 3}
+  - enemy: {fileID: 8934473631132488070, guid: 9357289208d7284408831925a5b6d00e, type: 3}
+  - enemy: {fileID: 8934473631132488070, guid: 9357289208d7284408831925a5b6d00e, type: 3}

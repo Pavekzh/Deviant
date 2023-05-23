@@ -53,6 +53,9 @@ VisualEffect:
       - m_Value: 0.7
         m_Name: LifeTime
         m_Overridden: 1
+      - m_Value: 0.7
+        m_Name: Lifetime
+        m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
@@ -217,7 +220,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a769ea5d5b8d0ad4dab02a380a05fc9d, type: 2}
+  - {fileID: 2100000, guid: 36f640fedb850794988e58abdf2ece81, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -300,7 +303,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a769ea5d5b8d0ad4dab02a380a05fc9d, type: 2}
+  - {fileID: 2100000, guid: 36f640fedb850794988e58abdf2ece81, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -450,6 +453,9 @@ VisualEffect:
       m_Array:
       - m_Value: 0.7
         m_Name: LifeTime
+        m_Overridden: 1
+      - m_Value: 0.7
+        m_Name: Lifetime
         m_Overridden: 1
     m_Vector2f:
       m_Array: []
@@ -876,6 +882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21e7cf32b177d674990d0e854e098367, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  death: {fileID: 8934473631132488074}
   health: {fileID: 8934473631132488073}
 --- !u!114 &4913027470662486264
 MonoBehaviour:
@@ -1102,6 +1109,7 @@ GameObject:
   - component: {fileID: 8934473631132488072}
   - component: {fileID: 8934473631132488073}
   - component: {fileID: 8934473631132488074}
+  - component: {fileID: 5449850970772321271}
   m_Layer: 10
   m_Name: RangedDrone
   m_TagString: Untagged
@@ -1179,7 +1187,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.45
+  m_Radius: 0.7144774
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -1196,7 +1204,7 @@ NavMeshAgent:
   m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 180
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -1220,6 +1228,7 @@ MonoBehaviour:
   destinationProvider: {fileID: 8934473631132488076}
   navAgent: {fileID: 8934473631132488071}
   responseTime: 0.5
+  rotationSpeed: 2
 --- !u!114 &8934473631132488076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1280,6 +1289,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25565e76b9dcefb49a76e9e44f36c9ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5449850970772321271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8934473631132488070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33cad4269ba59dc428b01f3b30fa5f2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 8934473631132488073}
 --- !u!1 &8934473631669951824
 GameObject:
   m_ObjectHideFlags: 0

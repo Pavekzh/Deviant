@@ -18,7 +18,18 @@ namespace Assets.Scripts.Arena
 
         public event Action TakedDamage;
         public bool Alive { get; private set; } = true;
-        public float HP { get => hp; }
+        public float HP 
+        { 
+            get => hp;
+            set
+            {
+                if (value < MaxHP)
+                    hp = value;
+                else
+                    hp = MaxHP;
+            }
+        
+        }
         public float MaxHP { get => maxHP; }
         public List<DamageModificator> Modificators { get => modificators; }
 
@@ -38,7 +49,7 @@ namespace Assets.Scripts.Arena
                 {
                     modificator.Modificate(damage);
                 }
-                hp = hp - damage.AllDamage;
+                HP = hp - damage.AllDamage;
 
 
                 if (healthBar != null)

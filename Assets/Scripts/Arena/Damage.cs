@@ -7,7 +7,7 @@ namespace Assets.Scripts.Arena
     [CreateAssetMenu(fileName = "Damage", menuName = "ScriptableObject/Damage/Damage")]
     public class Damage:ScriptableObject,ICloneable
     {
-        [SerializeField] List<DamagePart> damageParts;
+        [SerializeField] List<DamagePart> damageParts = new List<DamagePart>();
 
         public List<DamagePart> DamageParts { get => damageParts; }
 

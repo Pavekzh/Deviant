@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc8f7012e427fd41ae3c3353b65a008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: {fileID: 11400000, guid: 703f7a85dcad5e84ab72bbcbfe208b4c, type: 2}
+  damage: {fileID: 11400000, guid: d344c7d8070262d4b86951e6ac68edd3, type: 2}
 --- !u!1 &9063146452484801412
 GameObject:
   m_ObjectHideFlags: 0

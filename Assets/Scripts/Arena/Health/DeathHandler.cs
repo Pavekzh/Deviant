@@ -7,6 +7,8 @@ namespace Assets.Scripts.Arena
     public abstract class DeathHandler : MonoBehaviour
     {
         public abstract void HandleDeath();
+
+        public System.Action Died;
       
     }
 }

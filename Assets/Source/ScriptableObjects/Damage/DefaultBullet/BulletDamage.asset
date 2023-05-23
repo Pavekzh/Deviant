@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: BulletDamage
   m_EditorClassIdentifier: 
   damageParts:
-  - {fileID: 11400000, guid: 0c9fddb9a1ecf3846a3041fe9c97a41f, type: 2}
+  - Points: 15
+    Type: bullet

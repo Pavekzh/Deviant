@@ -11,6 +11,7 @@ namespace Arena
         [SerializeField] private float timeDelay = 5f;
         [SerializeField] private WaveData[] waves;
         [SerializeField] private SpawnSettings PositionSpawners;
+        [SerializeField] private Assets.Scripts.Menu.FinishGamePanelController finishGamePanel;
 
         private int waveIndex;
         private int amountKilledEnemies;
@@ -32,6 +33,11 @@ namespace Arena
             data = waves[0];
             waveFactory.CreateWave(data,PositionSpawners);
         }
+
+        private void Win()
+        {
+            finishGamePanel.OpenWin();
+        }
         
         public void StartNewWave()
         {
@@ -43,7 +49,7 @@ namespace Arena
                 waveFactory.CreateWave(data, PositionSpawners);
             }
             else
-                Debug.Log("Open portal");
+                Win();
         }
 
         public void EnemyDead()

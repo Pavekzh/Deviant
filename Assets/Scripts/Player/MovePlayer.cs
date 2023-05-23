@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Assets.Scripts.Arena;
 
 public class MovePlayer : MonoBehaviour
 {
+    [SerializeField] private Health health;
     [SerializeField] private UI.Joystick joystick;
     [SerializeField] private UI.Joystick attackJoystick;
     [SerializeField] private float speed;
@@ -19,7 +21,9 @@ public class MovePlayer : MonoBehaviour
 
         attackJoystick.InputReadingStarted += AttackJoystickTouched;
         attackJoystick.InputReadingStoped += AttackJoystickReleased;
+
     }
+
 
     private void AttackJoystickReleased()
     {
@@ -33,13 +37,20 @@ public class MovePlayer : MonoBehaviour
 
     private void Update()
     {
+        if (health.Alive)
+        {
+            Vector3 input = (joystick.JoystickDirection * -1) / joystick.SpaceRadius;
 
-        CurrentInputVector = Vector3.SmoothDamp(CurrentInputVector, joystick.JoystickDirection * -1, ref SmoothInputVelocity, smoothTime);
-        transform.Translate(CurrentInputVector * speed * Time.deltaTime, Space.World);
+            CurrentInputVector = Vector3.SmoothDamp(CurrentInputVector, input, ref SmoothInputVelocity, smoothTime);
+            transform.Translate(CurrentInputVector * speed * Time.deltaTime, Space.World);
+        }
+
     }
 
     private void JoystickInputChanged(Vector3 value, object source)
     {
+        if (!health.Alive)
+            return;
         if (rotationLocked)
             return;
 

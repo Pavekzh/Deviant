@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: 1
   m_EditorClassIdentifier: 
   enemies:
-  - enemy: {fileID: 2535826934085599655, guid: f72fa0efb7fcdd142bcb53d9a2de3cb7, type: 3}
-  - enemy: {fileID: 2535826934085599655, guid: f72fa0efb7fcdd142bcb53d9a2de3cb7, type: 3}
+  - enemy: {fileID: 5159881847594045042, guid: dbd8ae8900a4e8e42a5193be639a89e1, type: 3}
+  - enemy: {fileID: 5159881847594045042, guid: dbd8ae8900a4e8e42a5193be639a89e1, type: 3}
+  - enemy: {fileID: 5159881847594045042, guid: dbd8ae8900a4e8e42a5193be639a89e1, type: 3}
+  - enemy: {fileID: 5159881847594045042, guid: dbd8ae8900a4e8e42a5193be639a89e1, type: 3}
   - enemy: {fileID: 5159881847594045042, guid: dbd8ae8900a4e8e42a5193be639a89e1, type: 3}

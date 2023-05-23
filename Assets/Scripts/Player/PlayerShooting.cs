@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Assets.Scripts.Arena;
 using Arena;
+
 public class PlayerShooting : MonoBehaviour
 {
+    [SerializeField] private Health health;
     [SerializeField] private UI.Joystick joystick;
     [SerializeField] private LayerMask shootableLayerMask;
     [SerializeField] private ShootingModule shootingModule;
@@ -14,6 +17,12 @@ public class PlayerShooting : MonoBehaviour
     {
         joystick.InputReadingStoped += StopShooting;
         joystick.InputBinding.ValueChanged += JoystickInputChanged;
+    }
+
+    private void Update()
+    {
+        if(joystick.IsTouched)
+            shootingModule.Target = FindTarget(transform.position, joystick.JoystickDirection * -1, shootableLayerMask);
     }
 
     private void StopShooting()
@@ -36,14 +45,16 @@ public class PlayerShooting : MonoBehaviour
 
     private void JoystickInputChanged(Vector3 value, object source)
     {
+        if (!health.Alive)
+            return;
+
         value *= -1;
         if (value != Vector3.zero)
         {
             transform.rotation = Quaternion.Euler(Quaternion.LookRotation(value).eulerAngles+new Vector3(0,additionalAngle,0));
         }
         
-        shootingModule.Target = FindTarget(transform.position, value, shootableLayerMask);
-
+       
         StartShooting();
     }
 

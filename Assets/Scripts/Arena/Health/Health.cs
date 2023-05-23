@@ -17,7 +17,6 @@ namespace Assets.Scripts.Arena
         private DeathHandler deathHandler;
 
         public event Action TakedDamage;
-        public event Action Died;
         public bool Alive { get; private set; } = true;
         public float HP { get => hp; }
         public float MaxHP { get => maxHP; }
@@ -41,6 +40,7 @@ namespace Assets.Scripts.Arena
                 }
                 hp = hp - damage.AllDamage;
 
+
                 if (healthBar != null)
                     healthBar.UpdateFilling(HP / MaxHP);
 
@@ -54,7 +54,6 @@ namespace Assets.Scripts.Arena
             if (Mathf.Approximately(hp, 0) || hp < 0)
             {
                 Alive = false;
-                Died?.Invoke();
                 deathHandler.HandleDeath();
             }
         }

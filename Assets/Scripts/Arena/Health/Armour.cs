@@ -22,9 +22,9 @@ namespace Assets.Scripts.Arena
         public float Points { get => points; }
         public ModificatorType ModificatorType { get => modificatorType; }
 
-        public override void Modificate(DamagePart damage)
+        public override void Modificate(ref DamagePart damage)
         {
-            if(this.DamageType != DamageType)
+            if(this.DamageType != damage.Type)
                 return;
            
             if(modificatorType == ModificatorType.Absolute)

@@ -14,14 +14,17 @@ namespace Assets.Scripts.Arena
         public List<DamageModifacatorPart> Parts { get => parts; }
         public void Modificate(Damage damage)
         {
-            foreach (DamagePart part in damage.DamageParts)
+            for(int i = 0; i < damage.DamageParts.Count; i++)
             {
+                DamagePart part = damage.DamageParts[i];
+
                 foreach (DamageModifacatorPart mPart in Parts)
                 {
-                    mPart.Modificate(part);
+                    mPart.Modificate(ref part);
                 }
-            }
 
+                damage.DamageParts[i] = part;
+            }
         }
 
     }

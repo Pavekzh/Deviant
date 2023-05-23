@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: SwordDamage
   m_EditorClassIdentifier: 
   damageParts:
-  - {fileID: 11400000, guid: d0834c15029e2ea408975c834a3ae9c9, type: 2}
+  - Points: 20
+    Type: melee

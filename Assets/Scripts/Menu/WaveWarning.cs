@@ -34,7 +34,6 @@ namespace Assets.Scripts.Menu
             while(Time.realtimeSinceStartup < startTime + disappearingTime)
             {
                 text.color = new Color(text.color.r,text.color.g,text.color.b,text.color.a - alphaPerSecond * Time.deltaTime);
-                Debug.Log(text.color);
                 yield return null;
             }
             visibleManager.State = State.Default;

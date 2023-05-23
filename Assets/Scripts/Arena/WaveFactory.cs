@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Arena
 {
-    public class WaveFactory : MonoBehaviour
+    public class WaveFactory 
     {
         private EnemyFactory enemyFactory;
         public WaveFactory(EnemyFactory enemyFactory)

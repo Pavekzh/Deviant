@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,9 +12,8 @@ namespace Assets.Scripts.Arena
         [SerializeField] private float timeCooldown = 0.1f;
         [SerializeField] private LayerMask obstacleLayerMask;
         [SerializeField] private MeleeWeapon weapon;
+
         private GameObject player;
-
-
         private void Start()
         {
             player = Player.Player.Instance.gameObject;

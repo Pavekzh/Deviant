@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace Arena
 {
-    public class EnemyFactory : MonoBehaviour
+    public class EnemyFactory 
     {
         public void CreateEnemy(GameObject enemy,Vector3 position)
         {
-            Instantiate(enemy, position, Quaternion.identity);
+            GameObject.Instantiate(enemy, position, Quaternion.identity);
         }
     }
 }

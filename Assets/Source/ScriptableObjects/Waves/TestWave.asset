@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb858efccc0df4bbd5c9221a10a21f, type: 3}
-  m_Name: GunnerBullet
+  m_Script: {fileID: 11500000, guid: e02e80eaad2e62d4d961c4b468b7a97d, type: 3}
+  m_Name: TestWave
   m_EditorClassIdentifier: 
-  damageParts:
-  - Points: 7
-    Type: bullet
+  enemies:
+  - enemy: {fileID: 1122292506641969909, guid: 3d0f69a3d86be054a82ba5dbc49e5eda, type: 3}
